@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<!-- Copyright © Klevu Oy. All rights reserved. See LICENSE.txt for license details. -->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+
+    <!-- Archive Logs -->
+    <route url="/V1/klevu_logger/archive_logs/store/:store" method="POST">
+        <service class="Klevu\LoggerApi\Api\ArchiveLogsInterface" method="execute"/>
+        <resources>
+            <resource ref="Klevu_LoggerApi::developer_logging"/>
+        </resources>
+    </route>
+    <!-- Clear Logs -->
+    <route url="/V1/klevu_logger/clear_logs/store/:store" method="POST">
+        <service class="Klevu\LoggerApi\Api\ClearLogsInterface" method="execute"/>
+        <resources>
+            <resource ref="Klevu_LoggerApi::developer_logging"/>
+        </resources>
+    </route>
+</routes>
